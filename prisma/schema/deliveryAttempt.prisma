@@ -1,0 +1,17 @@
+model DeliveryAttempt {
+  id            String        @id @default(uuid()) @db.Uuid
+  shipmentId    String        @map("shipment_id") @db.Uuid
+  courierId     String        @map("courier_id") @db.Uuid
+  attemptNumber Int           @default(1) @map("attempt_number")
+  status        AttemptStatus
+  failureReason String?       @map("failure_reason") @db.VarChar(255)
+  notes         String?       @db.Text
+  attemptedAt   DateTime      @default(now()) @map("attempted_at") @db.Timestamptz
+  createdAt     DateTime      @default(now()) @map("created_at") @db.Timestamptz
+  // Relations
+  shipment        Shipment         @relation(fields: [shipmentId], references: [id], onDelete: Cascade, map: "fk_delivery_attempts_shipment")
+  courier         Courier          @relation(fields: [courierId], references: [id], onDelete: Restrict, map: "fk_delivery_attempts_courier")
+  proofOfDelivery ProofOfDelivery?
+  @@index([shipmentId], map: "idx_delivery_attempts_shipment")
+  @@map("delivery_attempts")
+}

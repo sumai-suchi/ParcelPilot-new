@@ -1,0 +1,80 @@
+
+enum UserRole {
+  CUSTOMER
+  COURIER
+  HUB_MANAGER
+  OPERATIONS_MANAGER
+  ADMIN
+  @@map("user_role")
+}
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  @@map("user_status")
+}
+enum CourierAvailability {
+  AVAILABLE
+  BUSY
+  OFFLINE
+  @@map("courier_availability")
+}
+enum ShipmentStatus {
+  PENDING_APPROVAL
+  CREATED
+  COURIER_ASSIGNED
+  PICKUP_ASSIGNED
+  PICKED_UP
+  AT_ORIGIN_HUB
+  IN_TRANSIT
+  AT_DESTINATION_HUB
+  OUT_FOR_DELIVERY
+  DELIVERED
+  DELIVERY_FAILED
+  RESCHEDULED
+  RETURN_INITIATED
+  RETURN_IN_TRANSIT
+  RETURNED
+  CANCELLED
+  @@map("shipment_status")
+}
+enum AssignmentStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+  COMPLETED
+  CANCELLED
+  @@map("assignment_status")
+}
+enum TransferStatus {
+  PENDING
+  DISPATCHED
+  IN_TRANSIT
+  RECEIVED
+  CANCELLED
+  @@map("transfer_status")
+}
+ enum AttemptStatus {
+  SUCCESS
+  FAILED
+  @@map("attempt_status")
+}
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+  @@map("payment_status")
+}
+
+enum AuthProvider {
+  GOOGLE
+  CREDENTIALS
+}
+
+enum ApplicationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  @@map("application_status")
+}

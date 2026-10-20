@@ -1,0 +1,188 @@
+[
+  {
+    "zoneName": "Dhaka Metro Zone",
+    "zoneCode": "ZONE-DHK",
+    "hubs": [
+      {
+        "name": "Tejgaon Central Linehaul Hub",
+        "code": "HUB-DHK-TEJ",
+        "address": "Plot 14, Tejgaon Industrial Area, Dhaka 1208",
+        "phone": "+880 1711-000001"
+      },
+      {
+        "name": "Uttara Northern Sorting Terminal",
+        "code": "HUB-DHK-UTT",
+        "address": "Sector 3, Jasimuddin Avenue, Uttara, Dhaka 1230",
+        "phone": "+880 1711-000002"
+      },
+      {
+        "name": "Mirpur Express Distribution Hub",
+        "code": "HUB-DHK-MIR",
+        "address": "Section 10, Mirpur Commercial Area, Dhaka 1216",
+        "phone": "+880 1711-000003"
+      },
+      {
+        "name": "Motijheel Financial District Hub",
+        "code": "HUB-DHK-MTJ",
+        "address": "Dilkusha Commercial Area, Motijheel, Dhaka 1000",
+        "phone": "+880 1711-000004"
+      },
+      {
+        "name": "Gazipur Industrial Transit Hub",
+        "code": "HUB-GZP-01",
+        "address": "Board Bazar, Gazipur Bypass Road, Gazipur 1704",
+        "phone": "+880 1711-000005"
+      },
+      {
+        "name": "Narayanganj Riverport Terminal",
+        "code": "HUB-NYG-01",
+        "address": "B.B. Road, Chasara, Narayanganj 1400",
+        "phone": "+880 1711-000006"
+      }
+    ]
+  },
+  {
+    "zoneName": "Bogura & Northern Zone",
+    "zoneCode": "ZONE-BOG",
+    "hubs": [
+      {
+        "name": "Bogura Sadar Regional Hub",
+        "code": "HUB-BOG-01",
+        "address": "Station Road, Charmatha Bus Terminal Area, Bogura 5800",
+        "phone": "+880 1711-000007"
+      },
+      {
+        "name": "Sherpur Highway Gateway Hub",
+        "code": "HUB-BOG-02",
+        "address": "Dhaka-Bogura Highway, Sherpur, Bogura 5840",
+        "phone": "+880 1711-000008"
+      }
+    ]
+  },
+  {
+    "zoneName": "Chattogram Division Zone",
+    "zoneCode": "ZONE-CTG",
+    "hubs": [
+      {
+        "name": "Agrabad Port Commercial Hub",
+        "code": "HUB-CTG-AGR",
+        "address": "Sheikh Mujib Road, Agrabad Commercial Area, Chattogram 4100",
+        "phone": "+880 1711-000009"
+      },
+      {
+        "name": "Nasirabad Heavy Linehaul Terminal",
+        "code": "HUB-CTG-NAS",
+        "address": "Baizid Bostami Road, Nasirabad Industrial Area, Chattogram 4210",
+        "phone": "+880 1711-000010"
+      },
+      {
+        "name": "Cox's Bazar Coastal Depot",
+        "code": "HUB-CXB-01",
+        "address": "Main Road, Kolatoli, Cox's Bazar 4700",
+        "phone": "+880 1711-000011"
+      },
+      {
+        "name": "Cumilla Highway Crossway Hub",
+        "code": "HUB-CUM-01",
+        "address": "Paduar Bazar, Biswa Road, Cumilla 3500",
+        "phone": "+880 1711-000012"
+      }
+    ]
+  },
+  {
+    "zoneName": "Rajshahi Division Zone",
+    "zoneCode": "ZONE-RAJ",
+    "hubs": [
+      {
+        "name": "Rajshahi Central Sorting Hub",
+        "code": "HUB-RAJ-01",
+        "address": "Station Road, Shaheb Bazar, Rajshahi 6100",
+        "phone": "+880 1711-000013"
+      },
+      {
+        "name": "Pabna Regional Delivery Point",
+        "code": "HUB-PBN-01",
+        "address": "Abdul Hamid Road, Pabna Sadar, Pabna 6600",
+        "phone": "+880 1711-000014"
+      }
+    ]
+  },
+  {
+    "zoneName": "Sylhet Division Zone",
+    "zoneCode": "ZONE-SYL",
+    "hubs": [
+      {
+        "name": "Sylhet Sadar Linehaul Hub",
+        "code": "HUB-SYL-01",
+        "address": "Subidbazar, VIP Road, Sylhet 3100",
+        "phone": "+880 1711-000015"
+      },
+      {
+        "name": "Habiganj Industrial Depot",
+        "code": "HUB-HBG-01",
+        "address": "Shayestaganj Highway Crossing, Habiganj 3300",
+        "phone": "+880 1711-000016"
+      }
+    ]
+  },
+  {
+    "zoneName": "Khulna & South-Western Zone",
+    "zoneCode": "ZONE-KLN",
+    "hubs": [
+      {
+        "name": "Khulna Central Gateway Hub",
+        "code": "HUB-KLN-01",
+        "address": "KDA Avenue, Royal Moor, Khulna 9100",
+        "phone": "+880 1711-000017"
+      },
+      {
+        "name": "Jashore Border Transit Terminal",
+        "code": "HUB-JSH-01",
+        "address": "Benapole Road, New Market, Jashore 7400",
+        "phone": "+880 1711-000018"
+      }
+    ]
+  },
+  {
+    "zoneName": "Rangpur Division Zone",
+    "zoneCode": "ZONE-RNG",
+    "hubs": [
+      {
+        "name": "Rangpur Modern Terminal Hub",
+        "code": "HUB-RNG-01",
+        "address": "Medical East Gate, Modern Mor, Rangpur 5400",
+        "phone": "+880 1711-000019"
+      },
+      {
+        "name": "Dinajpur Sorting Substation",
+        "code": "HUB-DNJ-01",
+        "address": "Hospital Mor, Dinajpur Sadar, Dinajpur 5200",
+        "phone": "+880 1711-000020"
+      }
+    ]
+  },
+  {
+    "zoneName": "Barishal Division Zone",
+    "zoneCode": "ZONE-BAR",
+    "hubs": [
+      {
+        "name": "Barishal Riverport Central Hub",
+        "code": "HUB-BAR-01",
+        "address": "Band Road, Launch Ghat Area, Barishal 8200",
+        "phone": "+880 1711-000021"
+      }
+    ]
+  },
+  {
+    "zoneName": "Mymensingh Division Zone",
+    "zoneCode": "ZONE-MYM",
+    "hubs": [
+      {
+        "name": "Mymensingh Sadar Terminal Hub",
+        "code": "HUB-MYM-01",
+        "address": "Town Hall Mor, Ganginarpar, Mymensingh 2200",
+        "phone": "+880 1711-000022"
+      }
+    ]
+  }
+]

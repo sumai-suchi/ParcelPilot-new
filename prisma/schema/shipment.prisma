@@ -1,0 +1,38 @@
+model Shipment {
+  id                String         @id @default(uuid()) @db.Uuid
+  trackingNumber    String         @unique @map("tracking_number") @db.VarChar(50)
+  customerId        String         @map("customer_id") @db.Uuid
+  pickupAddressId   String         @map("pickup_address_id") @db.Uuid
+  deliveryAddressId String         @map("delivery_address_id") @db.Uuid
+  originHubId       String?        @map("origin_hub_id") @db.Uuid
+  destinationHubId  String?        @map("destination_hub_id") @db.Uuid
+  parcelType        String         @map("parcel_type") @db.VarChar(50)
+  weight            Decimal        @db.Decimal(8, 2)
+  description       String?        @db.Text
+  deliveryType      String         @default("STANDARD") @map("delivery_type") @db.VarChar(50)
+  status            ShipmentStatus @default(PENDING_APPROVAL)
+  deliveryCharge    Decimal        @default(0.00) @map("delivery_charge") @db.Decimal(10, 2)
+  paymentStatus     PaymentStatus  @default(PENDING) @map("payment_status")
+  scheduledPickupAt DateTime?      @map("scheduled_pickup_at") @db.Timestamptz
+  deliveryOtp       String?        @map("delivery_otp") @db.VarChar(10)
+  createdAt         DateTime       @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt         DateTime       @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+  // Relations
+  customer        Customer @relation(fields: [customerId], references: [id], onDelete: Restrict, map: "fk_shipments_customer")
+  pickupAddress   Address  @relation("PickupAddressShipments", fields: [pickupAddressId], references: [id], onDelete: Restrict, map: "fk_shipments_pickup_address")
+  deliveryAddress Address  @relation("DeliveryAddressShipments", fields: [deliveryAddressId], references: [id], onDelete: Restrict, map: "fk_shipments_delivery_address")
+  originHub       Hub?     @relation("OriginHubShipments", fields: [originHubId], references: [id], onDelete: Restrict, map: "fk_shipments_origin_hub")
+  destinationHub  Hub?     @relation("DestinationHubShipments", fields: [destinationHubId], references: [id], onDelete: Restrict, map: "fk_shipments_dest_hub")
+  // Downstream Operations Relations
+  statusHistory      ShipmentStatusHistory[]
+  courierAssignments CourierParcel[]
+  hubTransfers       HubTransfer[]
+  deliveryAttempts   DeliveryAttempt[]
+  proofOfDelivery    ProofOfDelivery?
+  payment            Payment?
+  notifications      Notification[]
+  @@index([trackingNumber], map: "idx_shipments_tracking_number")
+  @@index([status], map: "idx_shipments_status")
+  @@index([customerId], map: "idx_shipments_customer")
+  @@map("shipments")
+}

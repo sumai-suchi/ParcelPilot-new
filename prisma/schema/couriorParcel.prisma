@@ -1,0 +1,19 @@
+model CourierParcel {
+  id          String           @id @default(uuid()) @db.Uuid
+  shipmentId  String           @map("shipment_id") @db.Uuid
+  courierId   String           @map("courier_id") @db.Uuid
+  assignedBy  String?          @map("assigned_by") @db.Uuid
+  status      AssignmentStatus @default(PENDING)
+  assignedAt  DateTime         @default(now()) @map("assigned_at") @db.Timestamptz
+  acceptedAt  DateTime?        @map("accepted_at") @db.Timestamptz
+  completedAt DateTime?        @map("completed_at") @db.Timestamptz
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt   DateTime         @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+  // Relations
+  shipment Shipment @relation(fields: [shipmentId], references: [id], onDelete: Cascade, map: "fk_assignments_shipment")
+  courier  Courier  @relation(fields: [courierId], references: [id], onDelete: Restrict, map: "fk_assignments_courier")
+  assigner User?    @relation("UserCourierAssignments", fields: [assignedBy], references: [id], onDelete: SetNull, map: "fk_assignments_assigned_by")
+  @@index([shipmentId], map: "idx_courier_assignments_shipment")
+  @@index([courierId], map: "idx_courier_assignments_courier")
+  @@map("courier_assignments")
+}

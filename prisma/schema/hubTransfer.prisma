@@ -1,0 +1,19 @@
+model HubTransfer {
+  id           String         @id @default(uuid()) @db.Uuid
+  shipmentId   String         @map("shipment_id") @db.Uuid
+  fromHubId    String         @map("from_hub_id") @db.Uuid
+  toHubId      String         @map("to_hub_id") @db.Uuid
+  status       TransferStatus @default(PENDING)
+  dispatchedAt DateTime?      @map("dispatched_at") @db.Timestamptz
+  receivedAt   DateTime?      @map("received_at") @db.Timestamptz
+  createdBy    String?        @map("created_by") @db.Uuid
+  createdAt    DateTime       @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt    DateTime       @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+  // Relations
+  shipment Shipment @relation(fields: [shipmentId], references: [id], onDelete: Cascade, map: "fk_hub_transfers_shipment")
+  fromHub  Hub      @relation("TransfersFromHub", fields: [fromHubId], references: [id], onDelete: Restrict, map: "fk_hub_transfers_from_hub")
+  toHub    Hub      @relation("TransfersToHub", fields: [toHubId], references: [id], onDelete: Restrict, map: "fk_hub_transfers_to_hub")
+  creator  User?    @relation("UserHubTransfers", fields: [createdBy], references: [id], onDelete: SetNull, map: "fk_hub_transfers_created_by")
+  @@index([shipmentId], map: "idx_hub_transfers_shipment")
+  @@map("hub_transfers")
+}

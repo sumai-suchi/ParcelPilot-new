@@ -1,0 +1,14 @@
+model ShipmentStatusHistory {
+  id         String         @id @default(uuid()) @db.Uuid
+  shipmentId String         @map("shipment_id") @db.Uuid
+  status     ShipmentStatus
+  location   String?        @db.VarChar(255)
+  note       String?        @db.Text
+  updatedBy  String?        @map("updated_by") @db.Uuid
+  createdAt  DateTime       @default(now()) @map("created_at") @db.Timestamptz
+  // Relations
+  shipment Shipment @relation(fields: [shipmentId], references: [id], onDelete: Cascade, map: "fk_status_history_shipment")
+  updater  User?    @relation("UserStatusUpdates", fields: [updatedBy], references: [id], onDelete: SetNull, map: "fk_status_history_user")
+  @@index([shipmentId], map: "idx_shipment_history_shipment")
+  @@map("shipment_status_history")
+}

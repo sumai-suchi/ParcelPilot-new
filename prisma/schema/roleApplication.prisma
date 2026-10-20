@@ -1,0 +1,22 @@
+model RoleApplication {
+  id              String            @id @default(uuid()) @db.Uuid
+  userId          String            @map("user_id") @db.Uuid
+  desiredRole     UserRole          @map("desired_role")
+  status          ApplicationStatus @default(PENDING)
+  notes           String?           @db.Text
+  experience      String?           @db.Text
+  vehicleType     String?           @map("vehicle_type") @db.VarChar(50)
+  vehicleNumber   String?           @map("vehicle_number") @db.VarChar(50)
+  hubId           String?           @map("hub_id") @db.Uuid
+  reviewedBy      String?           @map("reviewed_by") @db.Uuid
+  reviewedAt      DateTime?         @map("reviewed_at") @db.Timestamptz
+  rejectionReason String?           @map("rejection_reason") @db.Text
+  createdAt       DateTime          @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime          @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade, map: "fk_role_applications_user")
+  hub  Hub?  @relation(fields: [hubId], references: [id], onDelete: SetNull, map: "fk_role_applications_hub")
+
+  @@map("role_applications")
+}

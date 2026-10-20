@@ -1,0 +1,15 @@
+model Payment {
+  id            String        @id @default(uuid()) @db.Uuid
+  shipmentId    String        @unique @map("shipment_id") @db.Uuid
+  amount        Decimal       @db.Decimal(10, 2)
+  currency      String        @default("BDT") @db.VarChar(10)
+  provider      String        @db.VarChar(50)
+  transactionId String?       @unique @map("transaction_id") @db.VarChar(255)
+  status        PaymentStatus @default(PENDING)
+  paidAt        DateTime?     @map("paid_at") @db.Timestamptz
+  createdAt     DateTime      @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt     DateTime      @default(now()) @updatedAt @map("updated_at") @db.Timestamptz
+  // Relations
+  shipment Shipment @relation(fields: [shipmentId], references: [id], onDelete: Restrict, map: "fk_payments_shipment")
+  @@map("payments")
+}

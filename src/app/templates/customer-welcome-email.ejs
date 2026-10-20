@@ -1,0 +1,356 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Welcome to ParcelPilot</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7fb;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #1f2937;
+      }
+
+      .email-wrapper {
+        width: 100%;
+        padding: 40px 15px;
+        background-color: #f4f7fb;
+      }
+
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+      }
+
+      /* Header */
+      .header {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        padding: 38px 30px;
+        text-align: center;
+      }
+
+      .logo {
+        display: inline-block;
+        width: 62px;
+        height: 62px;
+        line-height: 62px;
+        border-radius: 16px;
+        background-color: #ffffff;
+        color: #2563eb;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 16px;
+      }
+
+      .header h1 {
+        margin: 0;
+        color: #ffffff;
+        font-size: 28px;
+        line-height: 1.3;
+      }
+
+      .header p {
+        margin: 8px 0 0;
+        color: #dbeafe;
+        font-size: 14px;
+      }
+
+      /* Content */
+      .content {
+        padding: 40px 35px;
+      }
+
+      .greeting {
+        font-size: 24px;
+        font-weight: 700;
+        color: #111827;
+        margin: 0 0 18px;
+      }
+
+      .greeting span {
+        color: #2563eb;
+      }
+
+      .content p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #4b5563;
+        margin: 0 0 18px;
+      }
+
+      /* Welcome Box */
+      .welcome-box {
+        margin: 28px 0;
+        padding: 22px;
+        background-color: #eff6ff;
+        border: 1px solid #dbeafe;
+        border-radius: 12px;
+      }
+
+      .welcome-box h3 {
+        margin: 0 0 8px;
+        color: #1e40af;
+        font-size: 17px;
+      }
+
+      .welcome-box p {
+        margin: 0;
+        color: #1d4ed8;
+        font-size: 14px;
+      }
+
+      /* Features */
+      .features {
+        margin: 30px 0;
+      }
+
+      .feature {
+        display: table;
+        width: 100%;
+        margin-bottom: 16px;
+      }
+
+      .feature-icon {
+        display: table-cell;
+        width: 46px;
+        height: 46px;
+        vertical-align: middle;
+        text-align: center;
+        background-color: #eff6ff;
+        border-radius: 10px;
+        color: #2563eb;
+        font-size: 20px;
+      }
+
+      .feature-content {
+        display: table-cell;
+        padding-left: 14px;
+        vertical-align: middle;
+      }
+
+      .feature-content strong {
+        display: block;
+        margin-bottom: 3px;
+        color: #1f2937;
+        font-size: 14px;
+      }
+
+      .feature-content span {
+        color: #6b7280;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      /* CTA */
+      .button-wrapper {
+        text-align: center;
+        margin: 32px 0 10px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 14px 30px;
+        background-color: #2563eb;
+        color: #ffffff !important;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 8px;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 25px 30px;
+        background-color: #f8fafc;
+        text-align: center;
+        border-top: 1px solid #e5e7eb;
+      }
+
+      .footer p {
+        margin: 5px 0;
+        color: #9ca3af;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .footer strong {
+        color: #2563eb;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .email-wrapper {
+          padding: 20px 10px;
+        }
+
+        .content {
+          padding: 30px 22px;
+        }
+
+        .header {
+          padding: 30px 20px;
+        }
+
+        .header h1 {
+          font-size: 24px;
+        }
+
+        .greeting {
+          font-size: 21px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="email-wrapper">
+      <div class="email-container">
+
+        <!-- Header -->
+        <div class="header">
+          <div class="logo">PP</div>
+
+          <h1>ParcelPilot</h1>
+
+          <p>Smart logistics. Reliable delivery.</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+
+          <h2 class="greeting">
+            Welcome, <span><%= name %></span>! 👋
+          </h2>
+
+          <p>
+            We're excited to have you on board! Your ParcelPilot account
+            has been successfully created.
+          </p>
+
+          <p>
+            ParcelPilot helps you manage your shipments, coordinate
+            deliveries, track parcels, and keep your entire logistics
+            operation organized in one place.
+          </p>
+
+          <!-- Welcome Box -->
+          <div class="welcome-box">
+            <h3>📦 Your account is ready!</h3>
+
+            <p>
+              You can now create shipments, request pickups, track
+              parcels, and manage your deliveries with ease.
+            </p>
+          </div>
+
+          <!-- Features -->
+          <div class="features">
+
+            <div class="feature">
+              <div class="feature-icon">📦</div>
+
+              <div class="feature-content">
+                <strong>Create Shipments</strong>
+
+                <span>
+                  Create and manage your parcels with shipment details
+                  and delivery information.
+                </span>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">🚚</div>
+
+              <div class="feature-content">
+                <strong>Manage Pickups & Deliveries</strong>
+
+                <span>
+                  Request pickups and keep track of your parcels from
+                  pickup to final delivery.
+                </span>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">📍</div>
+
+              <div class="feature-content">
+                <strong>Track Your Parcels</strong>
+
+                <span>
+                  Monitor shipment status and stay informed throughout
+                  the delivery journey.
+                </span>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon">📊</div>
+
+              <div class="feature-content">
+                <strong>Manage Your Logistics</strong>
+
+                <span>
+                  Keep your shipments, deliveries, payments, and logistics
+                  operations organized.
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- CTA -->
+          <div class="button-wrapper">
+            <a href="#" class="button">
+              Get Started
+            </a>
+          </div>
+
+          <p style="text-align: center; margin-top: 25px;">
+            We're here to make your delivery experience faster,
+            simpler, and more reliable.
+          </p>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+
+          <p>
+            Thank you for choosing
+            <strong>ParcelPilot</strong>.
+          </p>
+
+          <p>
+            &copy; <%= new Date().getFullYear() %>
+            ParcelPilot. All rights reserved.
+          </p>
+
+          <p>
+            This is an automated email. Please do not reply directly
+            to this message.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
+```

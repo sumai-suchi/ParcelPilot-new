@@ -1,0 +1,15 @@
+model ProofOfDelivery {
+  id                String          @id @default(uuid()) @db.Uuid
+  shipmentId        String          @unique @map("shipment_id") @db.Uuid
+  deliveryAttemptId String          @unique @map("delivery_attempt_id") @db.Uuid
+  recipientName     String          @map("recipient_name") @db.VarChar(255)
+  recipientPhone    String          @map("recipient_phone") @db.VarChar(50)
+  imageUrl          String?         @map("image_url") @db.VarChar(1000)
+  signatureUrl      String?         @map("signature_url") @db.VarChar(1000)
+  notes             String?         @db.Text
+  createdAt         DateTime        @default(now()) @map("created_at") @db.Timestamptz
+  // Relations
+  shipment        Shipment        @relation(fields: [shipmentId], references: [id], onDelete: Cascade, map: "fk_pod_shipment")
+  deliveryAttempt DeliveryAttempt @relation(fields: [deliveryAttemptId], references: [id], onDelete: Cascade, map: "fk_pod_attempt")
+  @@map("proof_of_deliveries")
+}
