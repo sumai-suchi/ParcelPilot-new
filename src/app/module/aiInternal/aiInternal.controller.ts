@@ -22,6 +22,17 @@ const getShipmentByTrackingNumber = catchAsync(
 	},
 );
 
+const getOperationsSummary = catchAsync(async (_req: Request, res: Response) => {
+	const result = await AiInternalService.getOperationsSummary();
+	sendResponse(res, {
+		statusCode: httpStatus.OK,
+		success: true,
+		message: "Operations summary retrieved successfully for AI service.",
+		data: result,
+	});
+});
+
 export const AiInternalController = {
 	getShipmentByTrackingNumber,
+	getOperationsSummary
 };

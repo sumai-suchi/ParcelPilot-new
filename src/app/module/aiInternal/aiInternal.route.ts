@@ -27,5 +27,11 @@ router.get(
 	checkInternalAuth,
 	AiInternalController.getShipmentByTrackingNumber,
 );
+// Operations Assistant Route (Protected by internal auth)
+router.get(
+	"/operations/summary",
+	checkInternalAuth,
+	AiInternalController.getOperationsSummary,
+);
 
 export const AiInternalRoutes = router;
